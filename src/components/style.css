@@ -1,28 +1,241 @@
-*{
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    background-color: rgb(28, 179, 179);
+html {
+    font-size: 62.5%;
+}
+
+.weather_main{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-image: url(../img/bg2.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.weather_main h1{
+    font-size: 4.6rem;
+}
+.weather_center{
+    width: 57rem;
+    height: 54rem;
+    display: grid;
+    place-items: center;
+    /* background-image: url(../img/bg1.png); */
+    background-color: #fff;
+    position: relative;
+    border: 2px solid #000;
+}
+
+/*---------- Top section -----------*/
+
+.weather_center .top{
+    width: 100%;
+    height: 3rem;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    background-color: #2309b6fb;
+    color: white;
+    padding: .5rem 1rem;
+    /* border: 2px solid red; */
+}
+.weather_center .top h3{
+    /* border: 2px solid red; */
+
+}
+
+/*---------- input section -----------*/
+
+.weather_center .searchBox{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 5.6rem;
+    position: absolute;
+    top: 1rem;
+    /* border: 2px solid red; */
 }
-.box{
+.searchText {
+    width: 28rem;
+    height: 3.6rem;
+    border-radius: 5rem;
+    padding: 0 2rem;
+    background-color: rgba(255, 255, 255, 0.973);
+    border: none;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    
+    color: #2c0fce;
+    box-shadow: 0 1rem 1.2rem -1rem #222a2f;
+}
+.search_icon{
+    font-size: 2.6rem;
+    margin-left: -4rem;
+    background-color: rgba(255, 251, 251, 0.973);
+    
+    color: #260DB7;
+}
+
+/* --------- error message ---------- */
+#error_message {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+}
+
+/*---------- weather status -----------*/
+
+.wea_status{
     width: 25rem;
-    height: 28rem;
+    height: 12rem;
+    display: grid;
+    place-items: center;
+    margin-top: 12rem;
+    /* border: 2px solid red; */
+}
+.wea_status img{
+    width: 11rem;
+    height: auto;
+}
+
+/*---------- name,temp section -----------*/
+
+.city_name{
+    width: 100%;
+    height: auto;
+    display: grid;
+    place-items: center;
+    font-size: 1.3rem;
+    /* border: 2px solid red; */
+}
+
+.city_name h1{
+    width: 100%;
+    height: auto;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    flex-direction: column;
-    margin-top: ;
-    border: 2px solid red;
-    background-color: rgb(31, 99, 177);
+    justify-content: center;
+    font-size: 2.8rem;
+    margin-bottom: 1.7rem;
+    /* border: 2px solid red; */
 }
-.inputData{
-    border: 2px solid red;
+.city_name h1 .street_icon{
+    width: 4rem;
+    height: 3.8rem;
+    font-size: 3rem;
+    margin-right: 1rem;
+    margin-bottom: .5rem;
+    animation: motion 1.5s linear infinite;
+    /* border: 2px solid red; */
 }
-.info{
-    border: 2px solid red;
+.city_name .tempc_icon{
+    width: 4rem;
+    height: auto;
+    margin-bottom: .6rem;
+    /* border: 2px solid red; */
+}
+@keyframes motion {
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-.8rem);
+    }
+    50%{
+        transform: translateX(0);
+    }
+    75%{
+        transform: translateX(.8rem);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+.city_name h2{
+    width: 100%;
+    height: 4.8rem;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid red; */
+}
+
+/*---------- Weather info section -----------*/
+
+.wea_info{
+    width: 100%;
+    height: 14rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+.wea_info h3{
+    font-size: 2rem;
+    margin: 1.8rem .6rem;
+    /* border: 2px solid red; */
+}
+.wea_info .tempn_icon{
+    font-size: 3.4rem;
+    color: rgb(38, 0, 255);
+    margin-right: .6rem;
+    margin-bottom: -.8rem;
+}
+.wea_info .tempx_icon{
+    font-size: 3.4rem;
+    color: rgb(38, 0, 255);
+    margin-right: .6rem;
+    margin-bottom: -.8rem;
+}
+.wea_info_left{
+    width: 50%;
+    height: 14rem;
+    font-size: 1.3rem;
+    line-height: 3rem;
+    padding: .5rem 2rem;
+    margin-bottom: -1rem;
+    background: #e8e8e8;
+box-shadow: inset 20px 20px 60px #b0c8f5,
+            inset -20px -20px 60px #ffffff;
+    /* border: 2px solid #000; */
+}
+
+.wea_info_right{
+    width: 50%;
+    height: 14rem;
+    font-size: 1.3rem;
+    line-height: 3rem;
+    padding: .5rem 2rem;
+    margin-bottom: -1rem;
+    background: #e8e8e8;
+box-shadow: inset -20px 20px 60px #b0c8f5,
+            inset 20px -20px 60px #ffffff;
+    /* border: 2px solid #000; */
+}
+
+.wea_info .hue_icon{
+    width: 3.5rem;
+    height: auto;
+    margin-right: .8rem;
+    margin-bottom: -.8rem;
+    /* border: 2px solid red; */
+}
+.wea_info .pre_icon{
+    width: 3rem;
+    height: auto;
+    margin-right: .8rem;
+    margin-bottom: -.8rem;
+    /* border: 2px solid red; */
 }
