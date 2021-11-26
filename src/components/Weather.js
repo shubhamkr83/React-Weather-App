@@ -20,8 +20,7 @@ const Weather = () => {
 
     useEffect(() => {
         const fetchApi = async () => {
-            const url = `http://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=523df27c7c6211cb898451283d346719`;
-            const response = await fetch(url);
+            const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=523df27c7c6211cb898451283d346719`);
             const resJson = await response.json();
             setCity(resJson.main);
         };
